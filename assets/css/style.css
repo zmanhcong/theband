@@ -1,0 +1,446 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+#main{
+    overflow: hidden;
+}
+
+/* common */
+.btn{
+    color: #fff;
+    background-color: #000;
+    text-decoration: none;
+    padding: 11px 16px;
+    display: inline-block;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+    text-align: center; /* dùng cho bản di động khi muốn cho thằng buy-tickets dài 100% và nằm ở giữa */
+    -webkit-appearance: none; /*Styling input buttons for iPad and iPhone*/
+}
+
+.pull-right{
+    float: right;
+}
+
+.btn:hover{
+    background-color: #ccc;
+    color: #000;
+}
+
+.row{
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.row::after {
+    content: "";
+    display: block;
+    clear: both;
+    /* cả cái element này dùng thay thế cho define clear bên html */
+}
+
+.col{
+    float: left;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.col-third{
+    width: 33.333%;
+}
+
+.col-half{
+    width: 50%;
+}
+
+.col-full{
+    width: 100%;
+}
+
+.text-center{
+    text-align: center !important;
+}
+
+.mt-8{
+    margin-top: 8px !important;
+}
+
+.mt-16{
+    margin-top: 16px !important;
+}
+
+.mt-32{
+    margin-top: 32px !important;
+}
+
+/*--end commond--*/
+#header{
+    height: 46px;
+    background-color:#000;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    /* overflow: hidden;  /* dùng để giấu đi phần thừa hoặc là phần mà bị chèn.*/
+}
+
+#nav{
+    display: inline-block;
+}
+
+#nav, .subnav{
+    list-style-type: none;
+}
+
+#nav > li{
+    display: inline-block;
+}
+
+#nav li {
+    position: relative;
+}
+#nav > li > a{
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#nav li a{
+    line-height: 46px;
+    padding: 0 24px;
+    text-decoration: none;
+    display: block;
+}
+
+#nav  li:hover > .subnav{
+    display: block;
+}
+
+#nav > li:hover >  a,
+#nav .subnav li:hover a {
+    color: #000;
+    background-color: #ccc;
+}
+
+#nav .subnav{
+    display: none;
+    min-width: 160px;
+    position: absolute;
+    top:100%;
+    left:0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#nav .subnav a {
+    color: #000;
+    padding: 0 12px;
+    line-height: 38px;
+}
+
+#nav .icon-angle-down{
+    font-size: 14px;
+    font-weight: 900;
+}
+
+#header .mobile-menu-btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+}
+
+#header .mobile-menu-btn,
+#header .search-btn{
+    float: right;    
+    padding: 0 21px;
+    cursor: pointer;
+}
+
+
+#header .search-btn:hover{
+    background-color: #f44336;
+}
+
+#header .mobile-menu-btn:hover{
+    background-color: #ccc;
+}
+
+#header .mobile-menu-btn:hover .menu-icon{
+    color: #000;
+}
+
+#header .menu-icon,
+#header .search-icon{
+    color: #fff;
+    font-size: 20px;
+    line-height: 46px;
+    padding: 0 21px;
+    display: block;
+}
+
+#slider{
+    margin-top: 46px;
+    padding-top: 50%; /* day la 50% cua chinh no. chieu cao bang 50% cua chieu rong */
+    /*để khi background-img vào thuận tiện cho việc zoom in, zoom out */
+    /* background: url('/assets/img/slider1.jpg'); */
+    background: url(../img/slider1.jpg); /*dùng "../" thế này để không bị lỗi khi có chuyển nhầm ảnh sang 1 thể khác*/
+    background-position: top center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#slider .text-content{
+    position: absolute;
+    /* tạo vị trí tương đối, tuyệt đối để tách thằng text content ra khỏi khối slider
+    => để dễ điều chỉnh vị trí của thằng text-content */
+    bottom: 0;
+    color: #fff;
+    padding-bottom: 48px;
+    /* CACH CAN GIUA THU 1 */
+    /* left: 50%;
+    transform: translateX(-50%); */
+    /* CACH CAN GIUA THU 2 */
+    width: 100%;
+    text-align: center;
+    text-shadow: 0 0 1px #000; /* làm cho chữ( chữ đè lên ảnh) được nhìn sắc nét hơn */
+}
+
+#slider .text-heading{
+    font-weight: 500;
+    font-size: 24px;
+}
+
+
+#slider .text-description{
+    font-size: 24px;
+    margin-top: 25px;
+}
+
+#content .content-section{
+    width: 800px; 
+    max-width: 100%;
+    padding: 64px 0 112px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+#content .section-heading{
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+#content .section-sub-heading{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 25px;
+    font-style: italic;
+    opacity: 0.6;
+}
+  
+#content .about-text{
+    margin-top: 25px;
+    font-size: 15px;
+    text-align:justify;
+    line-height: 1.4;
+}
+
+#content .section-heading,
+#content .section-sub-heading {
+text-align: center;
+
+}
+
+#content .members-list{
+    margin-top: 48px;
+    /* overflow: hidden; */
+}
+
+#content .member-name{
+    font-size: 15px;
+}
+
+#content .member-img{
+    width: 154px;
+    text-align: center;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+/*---------------------- Tour section ------------------*/
+.tour-section{
+    background-color: #000;
+}
+
+.text-white{
+    color: #fff !important;
+}
+
+.ticket-list{
+    background-color: #fff;
+    margin-top: 40px;
+    list-style-type: none;
+}
+
+
+.ticket-list li{
+    font-size: 15px;
+    padding: 11px 16px;
+    border-bottom: 1px solid #ddd;
+    color: #757575;
+}
+
+.tour-section .sold-out{
+    background-color: #f44336;
+    color: #fff;
+    padding: 5px 7px;
+    margin-left: 16px;
+}
+.tour-section .quantity{
+    float: right;
+    width: 24px;
+    height: 24px;
+    background-color: #000;
+    color:  #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    margin-top: -3px;
+}
+
+/* ---------------------Place------------------------- */
+.place-list{
+    margin-top: 32px;
+    /*margin-left: -8px; /* làm cho các mép dịch đều trái*/
+    /*margin-right: -8px; /* làm cho các mép dịch đều phải*/
+    /* margin: 32px -8px 0; */  /* cách viết tắt của 3 cái trên */
+    /* padding-bottom: 32px; */
+    /* margin-bottom: 48px; đã làm ở #content .content-section */
+}
+
+.place-item{ /* đã được định nghĩa thay thế ở class col and col-third nên không cần nữa */
+    /* float: left; */
+    /* width: 33.3333%; */
+    /* padding: 0 8px; */
+}
+
+.place-img {
+    width: 100%; /* để làm cho bức ảnh không quá kích thước đặt sẵn (specified:800px) */
+    display: block;
+}
+
+.place-img:hover{
+    opacity: 0.6;
+}
+
+.place-body{
+    background-color: #fff;
+    padding: 16px ;
+    font-size: 15px;
+}
+
+
+.place-heading{
+    font-size: 15px;
+    font-weight: 550;
+}
+
+.place-time{
+    margin-top: 15px;
+    color: #757575;
+}
+
+.place-desc{
+    margin-top: 15px;
+    line-height: 1.4;
+}
+
+.clear{
+    clear:both; /* fix error from float:left */
+}
+
+/* contact-form */
+.contact-content {
+    margin-top: 48px; /* cách chữ "Fan? Drop a note!" 1 khoảng 48px */
+}
+
+.contact-info{
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.contact-info i[class*="ti-"]{ /* chọn những thằng "class="ti-" rồi css cho nó */
+    width: 30px;
+    display: inline-block;
+}
+
+.contact-info a{
+    color:#0010ffe8;
+    opacity: 0.8;
+}
+
+.contact-info a:hover{
+    opacity: 1;
+}
+
+.contact-form{
+    font-size: 15px;
+}
+
+.contact-form .form-control{
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+/**--------------- <!-- Map section --------------> */
+.map-section img{
+    width: 100%;
+}
+
+#footer{
+    padding: 64px 16px;
+    text-align: center;
+}
+
+#footer .socials-list a{
+    color: rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+}
+#footer .copyright{
+    color: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    font-size: 15px;
+}
+
+#footer .copyright a{
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 15px;
+}
+
+#footer .socials-list a:hover,
+#footer .copyright a:hover{
+    color: rgba(0, 0, 0, 0.4);
+}
+
+@media (Max-width:800px){
+    /* Nhỏ hơn hoặc bằng 800px thì chạy  */
+}
+
+@media (min-width:800px){
+    /* Lớn hơn hoặc bằng 800px thì chạy */
+}

@@ -1,0 +1,118 @@
+@media (min-width: 1024px) {
+
+}
+
+/* Tablet and Mobile 0-> 1023 */
+@media (max-width: 1023px) { /* can be change to em */
+    .btn{
+        padding: 15px 16px;
+    }
+    .contact-form .form-control{
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .contact-info {
+        line-height: 2;
+    }
+
+    .contact-submit-btn{
+        font-size: 16px;
+    }
+
+    .contact-info a{
+        color:#0010ffe8; /* change the text color */
+        opacity: 0.8;
+    }
+
+    .contact-info a:hover{
+        opacity: 1;
+    }
+
+    .socials-list{
+        font-size: 48px;
+    }
+    
+    #footer .socials-list a{
+        margin: 0 8px;
+    }
+
+    #footer .copyright a {
+        padding: 12px 0;
+        display: inline-block;
+    }
+}
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .contact-info {
+        line-height: 2;
+    }
+}
+
+@media (max-width: 739px) {  /*max nhất là 738 để không bị trùng với table ở 740px*/
+
+    .s-full-width,
+    .s-col-full {
+        width: 100% !important;
+    }
+
+    .s-mt-8 {
+        margin-top: 8px !important;
+    }
+ 
+    #nav > li:first-child{
+        display: inline-block;
+    }
+
+    #header{
+        overflow: hidden; /* dùng để giấu đi phần thừa hoặc là phần mà bị chèn.*/
+    }
+
+    #nav{
+        display: block; 
+        /* lệnh này để làm cho chiều đài của nó được full 100% (hiện tại đang là inline-block)*/
+    }
+
+    #nav li a{
+        padding: 1px 24px;
+    }
+
+    #nav li{
+        display: block;
+    }
+
+
+    #header .search-icon{
+        display: none;
+    }
+
+    #header .mobile-menu-btn{
+        display: block;
+    }
+
+    #nav .subnav{
+        position: initial; /* trở về giá trị mặc định, nghĩa là ở thẻ này không còn position: absolute; nữa => như thế thì thanh menu phụ trong thằng more mới được hiện ra*/
+        background-color: #333;
+    }
+
+    #nav .subnav a{
+        color: #fff;
+        padding: 5px 41px;
+    }
+    
+    #content .member-item{
+        margin-top: 30px;
+        width: 100%;
+    }
+
+    #content .member-img{
+        width: 60%;
+    }
+
+    .contact-form{ /* tạo khoảng trống cho form và text.. nhưng để không ảnh hưởng đến pc thì ta để ở bên responsive */
+        margin-top: 32px;
+        line-height: 18px;
+    }
+
+} 
